@@ -1,0 +1,13 @@
+/* //IE 8 Specific Properties */
+.global-nav {
+	height: auto;
+}
+
+.global-nav .global-menu .lst-global-menu li {
+	/*display: block;*/
+}
+
+.global-nav.sticky-header .global-menu .lst-global-menu li .lst-global-submenu {
+	/*width: 100%;
+	position: relative;*/
+}

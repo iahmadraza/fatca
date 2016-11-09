@@ -1,0 +1,258 @@
+/* ====== COMMON MIXINS :: Start */
+
+$brand-primary-color: #007ACC;
+
+/* 1D252D 0088cc Final=007ACC Elian=000000 red=D50000 purple=4A148C green=1B5E20 */
+
+$brand-secondary-color: darken($brand-primary-color, 17%);
+
+/* //Final=333333 DarkSlateGray2=263238 DarkSlateGray=#16222A */
+
+@mixin opacity ($opacity: 1) {
+    zoom: 1;
+    filter: alpha(opacity=$opacity*100);
+    opacity: $opacity;
+}
+
+@mixin border-radius($radius: 4px) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin box-shadow ($shadow-properties...) {
+    @if length($shadow-properties) < 1 {
+        $shadow-properties: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+    -webkit-box-shadow: $shadow-properties;
+    -moz-box-shadow: $shadow-properties;
+    box-shadow: $shadow-properties;
+}
+
+@mixin diagonal-gradient($color1, $color2) {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#4a287a+0,ed7171+100 */
+    background: $color1;
+    /* Old browsers */
+    background: -moz-linear-gradient(-45deg, $color1 0%, $color2 100%);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, $color1), color-stop(100%, $color2));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(-45deg, $color1 0%, $color2 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg, $color1 0%, $color2 100%);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg, $color1 0%, $color2 100%);
+    /* IE10+ */
+    background: linear-gradient(135deg, $color1 0%, $color2 100%);
+    /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$color1}', endColorstr='#{$color2}', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+}
+
+@mixin transition ($properties...) {
+    -webkit-transition: $properties;
+    -moz-transition: $properties;
+    -o-transition: $properties;
+    transition: $properties;
+}
+
+@mixin transform ($properties...) {
+    -webkit-transform: $properties;
+    -moz-transform: $properties;
+    -ms-transform: $properties;
+    -o-transform: $properties;
+    transform: $properties;
+}
+
+@mixin vgap ($height: 5px) {
+    clear: both;
+    width: 100%;
+    height: $height;
+    display: block;
+    zoom: 1;
+}
+
+@mixin appearance ($value: none) {
+    -webkit-appearance: $value;
+    -moz-appearance: $value;
+    appearance: $value;
+}
+
+@mixin background-image($background-image) {
+    background-image: url($background-image);
+}
+
+
+/* ====== COMMON MIXINS :: End */
+
+
+/*** Collasible table css here ***/
+
+.bt-action-toggle {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: #aaa url('../images/icon/ic-plus-white.png') no-repeat center;
+    background-size: 10px;
+    @include border-radius(100%);
+    &.bt-active-o1 {
+        background-color: #26A69A;
+        background-image: url('../images/icon/ic-minus.png');
+    }
+    /* //&.bt-active-o1 */
+    &.bt-active-o2 {
+        background-color: #e0546f;
+        background-image: url('../images/icon/ic-minus.png');
+    }
+    /* //&.bt-active-o2 */
+}
+
+
+/* //.bt-action-toggle */
+
+.tr-action-toggle {
+    /*display: none;*/
+    overflow: hidden;
+    clear: both;
+    margin-left: 90px;
+    margin-bottom: 20px;
+    &>div.tr-action-incontent {
+        padding: 15px;
+        h5 {
+            display: block;
+            font-weight: 500;
+            display: block;
+            font-size: 20px;
+            text-transform: uppercase;
+            margin-top: 0;
+        }
+        /* //h5 */
+        .readable-panel-section {
+            padding: 25px;
+            b {
+                color: #757575;
+                font-size: 11px;
+                font-weight: 400;
+                line-height: 15px;
+            }
+            em {
+                font-weight: 400;
+                color: #060606;
+                font-size: 14px;
+            }
+        }
+    }
+    /* //.tr-action-incontent */
+    &.tr-active-o1 {
+        border-left: 10px solid #26A69A;
+        background: rgba(#26A69A, 0.06);
+        div.tr-action-incontent h5 {
+            color: #26A69A;
+        }
+    }
+    /* //&.tr-active-o1 */
+    &.tr-active-o2 {
+        border-left: 10px solid #e0546f;
+        background: rgba(#e0546f, 0.06);
+        div.tr-action-incontent h5 {
+            color: #e0546f;
+        }
+        /* changes here */
+    }
+    /* //&.tr-active-o2 */
+}
+
+
+/* //.tr-action-toggle */
+
+body .reports-data .reports-data-table .table tr.tr-noborder,
+tr.tr-noborder,
+div table.table tr.tr-noborder {
+    td {
+        padding: 0;
+        border: none;
+    }
+    /* //td */
+}
+
+
+/* //.tr-noborder */
+
+.onepx {
+    width: 0px;
+    height: 0px;
+}
+
+
+/* //.onepx */
+
+.readable-panel-section {
+    padding: 25px;
+    margin: 10px;
+    background: rgba(38, 166, 154, 0.07);
+    .page-heading.heading-focus-table {
+        color: #000;
+        border-bottom: 2px solid #E6E9ED;
+        padding: 7px;
+        margin: 0;
+        background: none;
+        font-size: 16px;
+    }
+    b {
+        color: darken($brand-primary-color, 10%);
+        font-size: 11px;
+        font-weight: 500;
+        line-height: 15px;
+    }
+    em {
+        font-style: normal;
+        font-size: 14px;
+    }
+}
+
+
+/* //readable-panel-section */
+
+.divlegend {
+    em {
+        font-style: normal;
+    }
+}
+
+
+/* //.divlegend */
+
+.regionwise-counter {
+    width: 100px;
+    height: 100px;
+    border: 2px solid #78909C;
+    border-radius: 100%;
+    text-align: center;
+    margin: 30px auto 0;
+}
+
+
+/* //.regionwise-counter */
+
+.regionwise-fetched-data h3 {
+    font-size: 50px;
+    display: block;
+    text-align: center;
+    padding: 16px 0 0;
+    margin: 0 auto;
+    font-weight: 400;
+}
+
+
+/* //.regionwise-counter h3 */
+
+.regionwise-fetched-data label {
+    font-weight: 400;
+    display: block;
+    color: #67b16b;
+    font-size: 18px;
+    text-align: center;
+    font-style: normal;
+    margin-top: 7px;
+}
